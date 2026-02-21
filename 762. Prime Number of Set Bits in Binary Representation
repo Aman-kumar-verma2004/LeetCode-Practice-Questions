@@ -1,0 +1,20 @@
+class Solution {
+    public int countPrimeSetBits(int left, int right) {
+        int res = 0;
+        while(left <= right){
+            int count = Integer.bitCount(left);
+            
+            if(checkPrime(count)) res++;
+            left++;
+        }
+        return res;
+        
+    }
+    public boolean checkPrime(int count){
+        if(count < 2) return false;
+        for(int i = 2; i<=Math.sqrt(count); i++){
+            if(count % i == 0) return false;
+        }
+        return true;
+    }
+}
