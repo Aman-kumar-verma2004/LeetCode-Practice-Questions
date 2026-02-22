@@ -1,0 +1,19 @@
+class Solution {
+    public int binaryGap(int n) {
+        String bitCon = Integer.toBinaryString(n);
+        int prev = -1;
+        int max = 0;
+        for(int i = 0; i<bitCon.length(); i++){
+            if(bitCon.charAt(i) == '1') {
+                if(prev != -1){
+                    max = Math.max(max, i - prev);
+                }   
+                prev = i;
+            }
+            
+        }
+        return max;
+
+        
+    }
+}
